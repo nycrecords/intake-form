@@ -46,7 +46,6 @@ class IntakeForm(FlaskForm):
     submitter_phone = TelField('Submitter Phone:', validators=[DataRequired()])
     submitter_title = StringField('Submitter Title', validators=[DataRequired()])
     submitter_division = SelectField('Submitter Division:', choices=DIVISIONS, validators=[DataRequired()])
-    submission_date = DateField('Date Submitted', default=datetime.today, format="%m/%d/%Y", validators=[DataRequired()])
 
     # Project Information
     project_name = StringField('Name:', validators=[DataRequired()])
@@ -57,7 +56,7 @@ class IntakeForm(FlaskForm):
     priority = SelectField("Priority:", choices=PRIORITY, validators=[DataRequired()])
     completion_date = DateField("When do you want this project to be delivered?", validators=[DataRequired()])
     supplemental_materials_one = FileField("Supplemental Materials:")
-    supplemental_materials_one_desc = StringField("Supplemental Materials Description: ", validators=[RequiredIf(supplemental_materials_one != None)])
+    supplemental_materials_one_desc = StringField("Supplemental Materials Description: ", validators=[RequiredIf(supplemental_materials_one != "None")])
     supplemental_materials_two = FileField("Supplemental Materials")
     supplemental_materials_two_desc = StringField("Supplemental Materials Description: ", validators=[RequiredIf(supplemental_materials_two != None)])
     supplemental_materials_three = FileField("Supplemental Materials:")
